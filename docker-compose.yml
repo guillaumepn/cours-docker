@@ -1,0 +1,32 @@
+version: "3.1"
+services:
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=wordpress
+    ports:
+      - "33061:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+
+  wordpress:
+    image: wordpress:4.8.2
+    environment:
+     - WORDPRESS_DB_PASSWORD=root
+    links:
+      - mariadb:mysql
+    ports:
+      - "8181:80"
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
