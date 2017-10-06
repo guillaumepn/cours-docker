@@ -27,6 +27,6 @@ services:
       - mariadb:mysql
     ports:
       - "8181:80"
+    working_dir: /var/www/html
     volumes:
       - .:/var/www/html
-    working_dir: /var/www/html

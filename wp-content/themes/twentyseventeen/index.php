@@ -27,7 +27,6 @@ get_header(); ?>
 		<h2 class="page-title"><?php _e( 'Posts', 'twentyseventeen' ); ?></h2>
 	</header>
 	<?php endif; ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
